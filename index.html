@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Perfect service provider</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+      <div class="logo mr-auto">
+        <h1><a href="index.html">Salakni</a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="html/providers.html">Sign Up</a></li>
+          <li><a href="html/providers.html">Login</a></li>
+          <li><a href="#" class="btn-offer-services">Offer my services</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="front-img" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center text-md-left">
+      <h1>Salakni</h1>
+      <h2>You can search for any service that you need</h2>
+      <input class="form-control" type="text" placeholder="Search for a service" aria-label="Search">
+    </div>
+  </section>
+
+
+  <main id="main">
+    <section id="services" class="services section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our categories</h2>
+          <p>Some of the most popular categories</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="icon-box">
+              <h4><a href="#">Gardner</a></h4>
+              <p>maintain the beauty of plants, outdoor grounds, and trees in a garden. They perform a range of general maintenance tasks including designing, producing, renewing and preserving outside spaces. Gardeners can work on local parks, hotels, farms, and nurseries.</p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <h4><a href="#">Mecanic</a></h4>
+              <p> responsible for inspecting and repairing vehicles, machinery, and light trucks. Also known as Service Technicians, these professionals oversee maintenance inspections, monitor inventory, assemble mechanical components, and perform repairs.</p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-4">
+            <div class="icon-box">
+              <h4><a href="#">Electrician</a></h4>
+              <p>Install, maintain and repair electrical control, wiring, and lighting systems. ... Perform general electrical maintenance. Inspect transformers and circuit breakers and other electrical components. Troubleshoot electrical issues using appropriate of testing devices.</p>
+            </div>
+          </div>
+          <div class="col-md-6 mt-4">
+            <div class="icon-box">
+              <h4><a href="#">HVAC Technician</a></h4>
+              <p>Installing, maintaining and repairing ventilation and air conditioning systems and equipment. Identifying maintenance risks on equipment. Diagnosing electrical and mechanical faults for HVAC systems. Cleaning, adjusting and repairing systems, and performing warranty services.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="providers" class="providers">
+      <div class="container">
+        <div class="section-title">
+          <h2>Top rated service providers</h2>
+          <p>Our top service providers</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="service-provs">
+              <img src="assets/img/Mehdi.jpg" alt="Picture of Mehdi">
+              <h4>Mehdi Elmoumni</h4>
+              <span>Plomber</span>
+              <p>
+                Provides excelent service always in time and meets the deadline with a competetive cost
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="service-provs">
+              <img src="assets/img/Mustapha.jpg" alt="Picture of Moustapha">
+              <h4>Mustapha Elebiari</h4>
+              <span>lay tiling</span>
+              <p>
+                Provides excelent service always in time and meets the deadline with a competetive cost
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="service-provs">
+              <img src="assets/img/Hichem.jpg" alt="">
+              <h4>Hicham Bennia</h4>
+              <span>Carpenter/Roofer</span>
+              <p>
+                Provides excelent service always in time and meets the deadline with a competetive cost
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2 class="section-title">Contact us</h2>
+          <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please contact us directly.</p>
+          <div class="row justify-content-center">
+            <div class="col-md-9 mb-md-0 mb-5">
+              <form id="contact-info" name="contact-form" action="mail.php" method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input type="text" id="name" name="name" class="form-control">
+                      <label for="name" class="">Your name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="md-form mb-0">
+                      <input type="text" id="email" name="email" class="form-control">
+                      <label for="email" class="">Your email</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form mb-0">
+                      <input type="text" id="subject" name="subject" class="form-control">
+                      <label for="subject" class="">Subject</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="md-form">
+                      <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                      <label for="message">Your message</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="text-center text-md-left">
+                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
+              </div>
+              <div class="status"></div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container d-md-flex py-4">
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Salakni - Hicham - Mustapha - Mehdi</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  </html>
