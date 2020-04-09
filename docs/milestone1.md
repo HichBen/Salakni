@@ -25,8 +25,8 @@
 Provide a description and images of the user interface your
 application will intend on supporting.
 
-![example image](../imgs/homepage_mockup.JPG)
-![example image](../imgs/homepage.JPG)
+![example image](../imgs/homepage_mockup.png)
+![example image](../imgs/homepage.png)
 
 The above image is a screenshot and mockup of the homepage, where we welcome the cusomters and have giving the immidiate ability to search the different serivice providers we have, so they can immediately start viewing and intracting with our page.
 
