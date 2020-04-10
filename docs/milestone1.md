@@ -43,11 +43,11 @@ The above image is a screenshot of the homepage scrolled down a little bit more,
 
 The above image and mockup is the the page where the user will see the different providers after they search or they navigate manually to it so they can contanct those providers and see the many options we have or they can search for some other providers or skills. Also, they would also be able to filter based on the different skills.
 
-![example image](../imgs/login_mockup.JPG)
+![example image](../imgs/login_mockup.png)
 ![example image](../imgs/login.png)
 The above image and mockup would be the login page, which will show up if the user clicked on login from the navigation bar, or they clicked on something that requires the user to be signed in eg. Contacting providers.
 
-![example image](../imgs/signup_mockup.JPG)
+![example image](../imgs/signup_mockup.png)
 ![example image](../imgs/signup.png)
 The above image and mockup would be the signup page, which will allow the user to signup if they don't already have an account, this page will show up if the user clicked on signup from the navigation bar or they would like to do an action that requires them to be signed in.
 
