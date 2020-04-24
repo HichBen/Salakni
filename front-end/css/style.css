@@ -187,3 +187,13 @@ section {
 .background {
   background-color: #184552;
 }
+.group {
+  display: none;
+}
+
+
+input[type=checkbox]:checked ~ div.group {
+  display:block;
+  color: red;
+}
+
