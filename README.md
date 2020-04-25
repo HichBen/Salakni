@@ -32,11 +32,14 @@ npm run clean
 │   │   ├── controller
 │   │   │   ├── client.ts
 │   │   │   └── reviews.ts
+|   |   |   └── providers.ts
 │   │   ├── index.ts
 │   │   ├── route
 │   │   │   └── client.ts
+|   |   |   └── providers.ts
 │   │   └── service
 │   │       └── client.ts
+|   |   |   └── providers.ts
 │   └── tsconfig.json
 └── public
     ├── assets
