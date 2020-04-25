@@ -90,6 +90,7 @@ DELETE /reviews/providers/{providerid}
    **Required:**
  
    `clientid=[integer]`
+   providerid=[integer]`
 
 * **Data Params**
 
