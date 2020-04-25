@@ -1,27 +1,28 @@
-const express = require('express');
-const router = express.Router();
-const providersController = require('../controllers/providers');
+import * as express from "express";
+import {ProvidersController} from "../controller/providers";
 
-/**
- * GET
- */
-router.get('/:provider_id', providersController.getProvider);
+export module ProvidersRouter {
+    export function buildRoutes(app: express.Application): void {
 
-/**
- * POST
- */
-router.post('/', providersController.postProvider);
+        /**
+         * GET
+         */
+        app.get('/providers/:provider_id', ProvidersController.getProvider);
 
-/**
- * PUT
- */
-router.put('/:provider_id', providersController.putProvider);
+        /**
+         * POST
+         */
+        app.post('/providers', ProvidersController.postProvider);
 
-/**
- * DELETE
- */
-router.delete('/:provider_id', providersController.deleteProvider);
+        /**
+         * PUT
+         */
+        app.put('/providers/:provider_id', ProvidersController.putProvider);
 
+        /**
+         * DELETE
+         */
+        app.delete('/providers/:provider_id', ProvidersController.deleteProvider);
 
-module.exports = router;
-
+    }
+}

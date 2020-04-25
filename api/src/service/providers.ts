@@ -1,8 +1,7 @@
-const axios = require('axios');
-const faker = require('faker');
+import * as faker from "faker";
 
-module.exports = {
-     fetchProvider:  async function(provider_id : string) {
+export module ProvidersService {
+    export async function fetchProvider(provider_id : string) {
             const fakeProvider = {
                 id: provider_id,
                 name: faker.name.findName(),
@@ -11,17 +10,17 @@ module.exports = {
             }
 
         return fakeProvider;
-    },
+    }
 
-    createProvider: async function (providerData: object) {
+    export async function createProvider(providerData: object) {
         return providerData;
-    },
+    }
 
-    updateProvider: async function (provider_id: string, providerData: object) {
+    export async function updateProvider(provider_id: string, providerData: object) {
         return {id: provider_id, ...providerData};
-    },
+    }
 
-    deleteProvider: async function (provider_id: string) {
+    export async function deleteProvider(provider_id: string) {
         return {id: provider_id};
     }
 }
