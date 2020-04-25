@@ -9,6 +9,12 @@ npm install
 ```
 Note : npm install will automatically compile TypeScript to Javascript code and you will not need to run tsc.
 
+### Start
+To start the api, run the following command:
+
+```
+npm start
+```
 ### Clean
 The command below will clean up the api folder and re-run a clean install. 
 ```
