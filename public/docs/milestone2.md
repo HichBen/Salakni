@@ -29,11 +29,11 @@ The above image is a screenshot of the homepage scrolled down a little bit, wher
 
 The above image is a screenshot of the homepage scrolled down a little bit more, where customers can contact us and ask any questions they have or any requests they have for the website.
 
-![example image](../imgs/providerProfile1.png)
-![example image](../imgs/providerProfile2.png)
-![example image](../imgs/providerProfile3.png)
-![example image](../imgs/providerProfile4.png)
-![example image](../imgs/providerProfile5.png)
+![example image](../imgs/providerProfile1.PNG)
+![example image](../imgs/providerProfile2.PNG)
+![example image](../imgs/providerProfile3.PNG)
+![example image](../imgs/providerProfile4.PNG)
+![example image](../imgs/providerProfile5.PNG)
 
 The above images are screenshots of the provider profile page with dummy stuff
 
