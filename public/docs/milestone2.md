@@ -32,8 +32,7 @@ The above image is a screenshot of the homepage scrolled down a little bit more,
 ![example image](../imgs/providerProfile1.PNG)
 ![example image](../imgs/providerProfile2.PNG)
 ![example image](../imgs/providerProfile3.PNG)
-![example image](../imgs/providerProfile4.PNG)
-![example image](../imgs/providerProfile5.PNG)
+![example image](../imgs/profilePage5.PNG)
 
 The above images are screenshots of the provider profile page with dummy stuff
 
