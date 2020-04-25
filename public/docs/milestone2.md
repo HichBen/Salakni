@@ -43,3 +43,69 @@ he also fixed the mvc model and different routes since every person worked on hi
 * Mehdi Elmoumni: Worked on the user page and made the client api, he also made the main web server index.ts.
 
 # Heroku URL
+
+
+# Api documentation
+ **Client APIs**
+----
+  Returns json data about a single user.
+  * **Install**
+  Run the command below
+  `npm install`
+  * **Start **
+To start the api, run the following command:
+  `npm start`
+  * **clean **
+To start the api, run the following command:
+  `npm clean`
+  The command below will clean up the api folder and re-run a clean install.
+
+* **URL**
+
+  /clients
+  /provider
+  /review
+  
+
+* **Method:**
+  GET /client
+GET /client/{clientid} POST /client
+PUT /client/{clientid}
+
+GET /providers
+GET /providers/{providerid} POST /providers
+PUT /providers/{providerid}
+
+POST /authenticate / Authenticate login for providers and clients
+GET /reviews/providers/{providerid} given provider
+POST /reviews/providers/{providerid} a provider
+PUT /reviews/providers/{providerid}
+DELETE /reviews/providers/{providerid}
+
+
+  `GET` | `POST` | `DELETE` | `PUT`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   `clientid=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  **Code:** 200 <br />
+    **Code:** 201 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error : "User doesn't exist" }`
+
+  OR
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "You are unauthorized to make this request." }`
