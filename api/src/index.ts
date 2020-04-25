@@ -2,6 +2,7 @@
  * @author: El Mehdi Moumni
  */
 import {ClientRouter} from "./route/client";
+import {ReviewsRouter} from "./route/reviews"
 import express from "express";
 import cors from "cors"
 import helmet from "helmet";
@@ -15,6 +16,8 @@ app.use(express.json());
 
 // Members API Routes
 ClientRouter.buildRoutes(app);
+ReviewsRouter.buildRoutes(app);
+
 
 const PORT = process.env.PORT || 3000;
 
