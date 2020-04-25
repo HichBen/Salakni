@@ -1,11 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "api": "rm -rf dist && tsc && node dist/index.js",
-    "dev": "ts-node-dev --respawn --transpileOnly ./index.ts",
-    "tsc": "tsc"
+    "install": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "clean": "rm -rf package-lock.json && rm -rf node_modules && rm -rf dist && npm install"
   },
   "keywords": [],
   "author": "",
