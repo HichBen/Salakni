@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Members API Routes
 app.use('/clients', require('./routes/clients'));
+app.use('/providers', require('./routes/providers'));
 
 const PORT = process.env.PORT || 5000;
 
