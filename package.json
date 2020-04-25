@@ -1,9 +1,11 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "api": "rm -rf dist && tsc && node dist/index.js"
+    "api": "rm -rf dist && tsc && node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpileOnly ./index.ts",
+    "tsc": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +16,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "helmet": "^3.22.0"
+    "helmet": "^3.22.0",
+    "ts-node-dev": "^1.0.0-pre.44"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
