@@ -11,6 +11,6 @@ export module ClientModel {
         timestamps: {createdAt: 'createdDate', updatedAt: 'updatedDate'}
     });
 
-     export const object = mongoose.model<any>('Client', ClientSchema);
+     export const instance = mongoose.model<any>('Client', ClientSchema);
 
 }

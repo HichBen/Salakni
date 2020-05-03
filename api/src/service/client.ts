@@ -18,14 +18,14 @@ export module ClientService {
                 password: "123456"
             };
 
-            const newClient =  new ClientModel.object(fakeClient);
+            const newClient =  new ClientModel.instance(fakeClient);
             await newClient.save()
         }
     }
 
     export async function findAll() {
         try {
-            const clients = ClientModel.object.find({}).lean().exec();
+            const clients = ClientModel.instance.find({}).lean().exec();
             return clients;
         } catch (error) {
             console.log(error);
@@ -34,7 +34,7 @@ export module ClientService {
 
     export async function findOne(client_id: string){
         try {
-            const client = ClientModel.object.find({_id: client_id}).lean().exec();
+            const client = ClientModel.instance.find({_id: client_id}).lean().exec();
             return client;
         } catch (error) {
             console.log(error);
@@ -43,7 +43,7 @@ export module ClientService {
 
     export async function create(clientData: any) {
         try {
-            const newClient = new ClientModel.object(clientData)
+            const newClient = new ClientModel.instance(clientData)
             return newClient.save();
         } catch (error) {
             console.log(error);
@@ -52,7 +52,7 @@ export module ClientService {
 
     export async function update(client_id: string, clientData: any) {
         try {
-            const updatedClient = await ClientModel.object.updateOne({_id: client_id}, { $set: clientData});
+            const updatedClient = await ClientModel.instance.updateOne({_id: client_id}, { $set: clientData});
             return updatedClient;
         } catch (error) {
             console.log(error);
@@ -62,7 +62,7 @@ export module ClientService {
 
     export async function remove(client_id: string) {
         try {
-            const remove = await ClientModel.object.findOneAndRemove({_id: client_id});
+            const remove = await ClientModel.instance.findOneAndRemove({_id: client_id});
             return remove;
         } catch (error) {
             console.log(error);
