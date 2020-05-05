@@ -67,7 +67,7 @@ Our API works with Node.js, Express.js and MongoDB.
 It's based on typescript and runs on the server
 we use npm modules to help us construct and build the API
 
-**Database**
+* **Database**
 We use MongoDB for database and Mongoose from npm
 to handle working with it
 we have 2 Model Schemas for Clients and Providers
@@ -94,7 +94,7 @@ provider : {
 }
 
 we give a type for each field in the model so that we decide what's gonna save in it
-# URL Routes: 
+* **URL Routes:**  
 
 POST /register => register client or provider
 POST /login => login client or provider
@@ -108,7 +108,7 @@ GET /api/providers => get all providers
 GET /api/providers/:provider_id => get provider by id
 POST /api/providers/:provider_id/update => update provider
 
-# Pages 
+* **Pages**
 
 /               index page ( can be accesed by everyone )
 /register       register page ( can't be accesed if user is logged in )
