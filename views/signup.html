@@ -109,6 +109,11 @@
         var skills = document.getElementById('registerSkill').value
         var provider = document.querySelector('#providerCheck').checked
 
+        if (!imgUrl) {
+            alert('Please upload picture')
+            return
+        }
+
         var data = { email, password, name, description, phone, address, skills, provider, imgUrl };
 
         var result = $.post('/register', data);
