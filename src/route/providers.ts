@@ -7,22 +7,10 @@ export module ProvidersRouter {
         /**
          * GET
          */
-        app.get('/providers/:provider_id', ProvidersController.getProvider);
+        app.get('/api/providers', ProvidersController.getProviders);
 
-        /**
-         * POST
-         */
-        app.post('/providers', ProvidersController.postProvider);
-
-        /**
-         * PUT
-         */
-        app.put('/providers/:provider_id', ProvidersController.putProvider);
-
-        /**
-         * DELETE
-         */
-        app.delete('/providers/:provider_id', ProvidersController.deleteProvider);
-
+        app.get('/api/providers/:provider_id', ProvidersController.getProvider);
+        
+        app.post('/api/providers/:provider_id/update', ProvidersController.updateProvider);
     }
 }

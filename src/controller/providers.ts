@@ -1,43 +1,31 @@
 import {ProvidersService} from "../service/providers";
-
+import { Request, Response, NextFunction} from 'express'
 
 export module ProvidersController{
-    export async function getProvider(req, res, next) {
+    export async function getProviders(req:Request, res:Response, next:NextFunction) {
         try {
-            const fakerData = await ProvidersService.fetchProvider(req.params.provider_id);
-            res.status(200).json(fakerData);
+            const providers = await ProvidersService.getProviders();
+            res.status(200).json(providers);
         } catch (err) {
             next(err);
         }
     }
 
-    export async function postProvider(req, res, next) {
+    export async function getProvider(req:Request, res:Response, next:NextFunction) {
         try {
-            const fakerData = await ProvidersService.createProvider(req.body);
-            res.status(201).json(fakerData);
+            const providers = await ProvidersService.getProvider(req.params.provider_id);
+            res.status(200).json(providers);
         } catch (err) {
             next(err);
-
         }
     }
 
-    export async function putProvider(req, res, next) {
+    export async function updateProvider(req:Request, res:Response, next:NextFunction) {
         try {
-            const updatedPerson = await ProvidersService.updateProvider(req.params.provider_id, req.body);
-            res.status(200).json(updatedPerson);
+            const providers = await ProvidersService.updateProvider(req.params.provider_id, req.body);
+            res.status(200).json(providers);
         } catch (err) {
             next(err);
-
-        }
-    }
-
-    export async function deleteProvider(req, res, next) {
-        try {
-            const deletedId = await ProvidersService.deleteProvider(req.params.provider_id);
-            res.status(200).json(deletedId);
-        } catch (err) {
-            next(err);
-
         }
     }
 }

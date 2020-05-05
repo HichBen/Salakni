@@ -5,20 +5,23 @@
   <meta charset="utf-8">
   <title>Perfect service provider</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="css/providerProfile.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="/css/providerProfile.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
       <div class="logo mr-auto">
-        <h1><a href="index.html">Salakni</a></h1>
+        <h1><a href="/">Salakni</a></h1>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
+          <li class="active"><a href="/">Home</a></li>
           <li><a href="#contact" class="btn-offer-services">Chat</a></li>
         </ul>
       </nav>
@@ -29,32 +32,13 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="hero-text">
-                <h2>Dummy Jober</h2>
-                <p>I’m a professional jober who has been working in construction for more than 20 years and will be happy to help you do your jobs.</p>
-              </div>
-              <div class="hero-info">
-                <h2>General Info</h2>
-                <ul>
-                  <li><span>Address</span>58 North East, Amherst, US</li>
-                  <li><span>E-mail</span>hich@walo.com</li>
-                  <li><span>Phone </span>857 261 7319</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <figure class="hero-image">
-                <img src="assets/img/fakerImg.jpg" alt="profilePicture">
-              </figure>
-            </div>
+          <div class="row provider-details">
+            
           </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <main id="main">
     <section id="services" class="services section-bg">
@@ -63,28 +47,9 @@
           <h2>Skills</h2>
         </div>
 
-        <div class="row">
-         <div class="col-md-6">
-            <div class="icon-box">
-              <h4><a href="#">Gardner</a></h4>
-               </div>
-          </div>
-          <div class="col-md-6 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <h4><a href="#">Mecanic</a></h4>
-              </div>
-          </div>
-          <div class="col-md-6 mt-4">
-            <div class="icon-box">
-              <h4><a href="#">Electrician</a></h4>
-             </div>
-          </div>
-          <div class="col-md-6 mt-4">
-            <div class="icon-box">
-              <h4><a href="#">HVAC Technician</a></h4>
-             </div>
-          </div>
-      </div>
+        <div class="row skills">
+          
+        </div>
     </section>
 
     <section id="providers" class="providers">
@@ -139,7 +104,8 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="md-form">
-                      <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                      <textarea type="text" id="message" name="message" rows="2"
+                        class="form-control md-textarea"></textarea>
                       <label for="message">Your message</label>
                     </div>
                   </div>
@@ -152,7 +118,7 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </section>
   </main>
 
@@ -163,7 +129,51 @@
           &copy; Copyright <strong><span>Salakni - Hicham - Mustapha - Mehdi</span></strong>. All Rights Reserved
         </div>
       </div>
-    </footer>
-  </body>
+  </footer>
+</body>
 
-  </html>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let clientID = document.location.search.split('=')[1]
+    let result = $.get(`/api/providers/${clientID}`)
+    result.done(data => {
+      if (data.success == true) {
+        let provider = data.data
+        let html = `<div class="col-lg-6">
+                <div class="hero-text">
+                  <h2 class="prov-name">${provider.name}</h2>
+                  <p class="prov-desc">${provider.description}</p>
+                </div>
+                <div class="hero-info">
+                  <h2>General Info</h2>
+                  <ul>
+                    <li><span>Address</span><span class="prov-address">${provider.address}</span></li>
+                    <li><span>E-mail</span><span class="prov-email">${provider.email}</span></li>
+                    <li><span>Phone </span><span class="prov-phone">${provider.phone}</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <figure class="hero-image">
+                  <img src="${provider.photo}" width="400px" alt="profilePicture">
+                </figure>
+              </div>`
+          let skillsHtml = ''
+          provider.skills.forEach(skill => {
+              let html = `<div class="col-md-6 mb-3">
+                <div class="icon-box">
+                  <h4><a href="#">${skill}</a></h4>
+                </div>
+              </div>`
+              skillsHtml += html
+          });
+          document.querySelector('.skills').innerHTML = skillsHtml
+        document.querySelector('.provider-details').innerHTML = html
+      } else {
+        document.location.replace('/')
+      }
+    })
+  })
+</script>
