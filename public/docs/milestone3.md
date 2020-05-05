@@ -44,7 +44,7 @@ The above images are screenshots of the provider profile page with dummy stuff
 # Division of work
 * Mostafa Elebiary: Worked on the authentication, static serving in html files.
 * Hicham Bennia: Worked on the provider profile and made the porvider api.
-* Mehdi Elmoumni: Worked on the provider profile and made the porvider api and was responsible of the documentation.
+* Mehdi Elmoumni: Worked on the client profile and made the client api and was responsible of the documentation.
 * team work: worked on the Heroku together. 
 # Heroku URL
 
