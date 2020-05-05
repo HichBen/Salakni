@@ -12,6 +12,11 @@
 * Hicham Bennia, 
 * Mehdi Elmoumni,
 
+# Heroku URL
+
+https://dry-garden-88062.herokuapp.com/
+
+
 # User Interface
 
 Provide a description and images of the user interface your
@@ -62,56 +67,65 @@ Our API works with Node.js, Express.js and MongoDB.
 It's based on typescript and runs on the server
 we use npm modules to help us construct and build the API
 
-**Database**
+* **Database**
 We use MongoDB for database and Mongoose from npm
 to handle working with it
 we have 2 Model Schemas for Clients and Providers
 
-client : {
-    email: string;
-    password: string;
-    name: string;
-    phone: string;
-    address: string;
-    type: string;
-    photo: string
-}
-
-provider : {
-    email: string;
-    password: string;
-    name: string;
-    skills: string[];
-    photo: string;
-    phone: string;
-    address: string;
-    description: string;
-}
+```sh
+$ cd dillinger
+$ npm install -d
+$ node app
+```
+```sh
+$ client : {
+$   email: string;
+$    password: string;
+$    name: string;
+$    phone: string;
+$    address: string;
+$    type: string;
+$    photo: string
+$}
+```
+```sh
+$provider : {
+$    email: string;
+$    password: string;
+$    name: string;
+$    skills: string[];
+$    photo: string;
+$    phone: string;
+$    address: string;
+$    description: string;
+$}
+```
 
 we give a type for each field in the model so that we decide what's gonna save in it
-# URL Routes: 
+* **URL Routes:**  
+```sh
+$ POST /register => register client or provider
+$ POST /login => login client or provider
+$ GET /logout => logout client or provider
+$ GET /getuser => get logged in user details
+$ POST /addpic => add picture and get its url
+$ GET /clients => get all clients
+$ GET /clients/:client_id => get client by id
+$ POST /clients/:client_id/update => update client
+$ GET /api/providers => get all providers
+$ GET /api/providers/:provider_id => get provider by id
+$ POST /api/providers/:provider_id/update => update provider
+```
 
-POST /register => register client or provider
-POST /login => login client or provider
-GET /logout => logout client or provider
-GET /getuser => get logged in user details
-POST /addpic => add picture and get its url
-GET /clients => get all clients
-GET /clients/:client_id => get client by id
-POST /clients/:client_id/update => update client
-GET /api/providers => get all providers
-GET /api/providers/:provider_id => get provider by id
-POST /api/providers/:provider_id/update => update provider
-
-# Pages 
-
-/               index page ( can be accesed by everyone )
-/register       register page ( can't be accesed if user is logged in )
-/login          login page ( can't be accesed if user is logged in )
-/user           user page ( can't be accesed if user is not logged in )
-/providers      providers page ( can't be accesed if user is not logged in )
-/provider       providers page ( can be accesed by everyone ) and get the provider by query ?id=providerID
-
+* **Pages**
+```sh
+$ /               index page ( can be accesed by everyone )
+$ /register       register page ( can't be accesed if user is logged in )
+$ /login          login page ( can't be accesed if user is logged in )
+$ /user           user page ( can't be accesed if user is not logged in )
+$ /providers      providers page ( can't be accesed if user is not logged in )
+$ /provider       providers page ( can be accesed by everyone ) and get the provider by query ?id=providerID
+```
 # Authentication:
 
 we use passport and passport local to handle authentication in the APP
