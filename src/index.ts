@@ -8,6 +8,7 @@ import express from "express";
 import cors from "cors"
 import helmet from "helmet";
 import path from "path";
+import mongoose from "mongoose";
 
 const app = express()
 
@@ -16,6 +17,15 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, './public')));
+
+mongoose.connect('mongodb://localhost:27017/', {
+    dbName: "salakni",
+    user: "admin",
+    pass:"admin",
+    checkServerIdentity: false,
+    useNewUrlParser: true,
+    useUnifiedTopology:false
+});
 
 
 // Members API Routes

@@ -4,7 +4,7 @@
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :
+  typeof exports === 'instance' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
   (global = global || self, factory(global.bootstrap = {}, global.jQuery, global.Popper));
 }(this, function (exports, $, Popper) { 'use strict';
@@ -1041,7 +1041,7 @@
 
         var _config = _objectSpread({}, Default, $(this).data());
 
-        if (typeof config === 'object') {
+        if (typeof config === 'instance') {
           _config = _objectSpread({}, _config, config);
         }
 
@@ -1393,7 +1393,7 @@
       var parent;
 
       if (Util.isElement(this._config.parent)) {
-        parent = this._config.parent; // It's a jQuery object
+        parent = this._config.parent; // It's a jQuery instance
 
         if (typeof this._config.parent.jquery !== 'undefined') {
           parent = this._config.parent[0];
@@ -1429,7 +1429,7 @@
         var $this = $(this);
         var data = $this.data(DATA_KEY$3);
 
-        var _config = _objectSpread({}, Default$1, $this.data(), typeof config === 'object' && config ? config : {});
+        var _config = _objectSpread({}, Default$1, $this.data(), typeof config === 'instance' && config ? config : {});
 
         if (!data && _config.toggle && /show|hide/.test(config)) {
           _config.toggle = false;
@@ -1841,7 +1841,7 @@
       return this.each(function () {
         var data = $(this).data(DATA_KEY$4);
 
-        var _config = typeof config === 'object' ? config : null;
+        var _config = typeof config === 'instance' ? config : null;
 
         if (!data) {
           data = new Dropdown(this, _config);
@@ -2525,7 +2525,7 @@
       return this.each(function () {
         var data = $(this).data(DATA_KEY$5);
 
-        var _config = _objectSpread({}, Default$3, $(this).data(), typeof config === 'object' && config ? config : {});
+        var _config = _objectSpread({}, Default$3, $(this).data(), typeof config === 'instance' && config ? config : {});
 
         if (!data) {
           data = new Modal(this, _config);
@@ -2750,7 +2750,7 @@
     template: 'string',
     title: '(string|element|function)',
     trigger: 'string',
-    delay: '(number|object)',
+    delay: '(number|instance)',
     html: 'boolean',
     selector: '(string|boolean)',
     placement: '(string|function)',
@@ -2760,7 +2760,7 @@
     boundary: '(string|element)',
     sanitize: 'boolean',
     sanitizeFn: '(null|function)',
-    whiteList: 'object'
+    whiteList: 'instance'
   };
   var AttachmentMap$1 = {
     AUTO: 'auto',
@@ -3101,7 +3101,7 @@
     };
 
     _proto.setElementContent = function setElementContent($element, content) {
-      if (typeof content === 'object' && (content.nodeType || content.jquery)) {
+      if (typeof content === 'instance' && (content.nodeType || content.jquery)) {
         // Content is a DOM node or a jQuery
         if (this.config.html) {
           if (!$(content).parent().is($element)) {
@@ -3295,7 +3295,7 @@
           delete dataAttributes[dataAttr];
         }
       });
-      config = _objectSpread({}, this.constructor.Default, dataAttributes, typeof config === 'object' && config ? config : {});
+      config = _objectSpread({}, this.constructor.Default, dataAttributes, typeof config === 'instance' && config ? config : {});
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -3373,7 +3373,7 @@
       return this.each(function () {
         var data = $(this).data(DATA_KEY$6);
 
-        var _config = typeof config === 'object' && config;
+        var _config = typeof config === 'instance' && config;
 
         if (!data && /dispose|hide/.test(config)) {
           return;
@@ -3559,7 +3559,7 @@
       return this.each(function () {
         var data = $(this).data(DATA_KEY$7);
 
-        var _config = typeof config === 'object' ? config : null;
+        var _config = typeof config === 'instance' ? config : null;
 
         if (!data && /dispose|hide/.test(config)) {
           return;
@@ -3769,7 +3769,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$6, typeof config === 'object' && config ? config : {});
+      config = _objectSpread({}, Default$6, typeof config === 'instance' && config ? config : {});
 
       if (typeof config.target !== 'string') {
         var id = $(config.target).attr('id');
@@ -3880,7 +3880,7 @@
       return this.each(function () {
         var data = $(this).data(DATA_KEY$8);
 
-        var _config = typeof config === 'object' && config;
+        var _config = typeof config === 'instance' && config;
 
         if (!data) {
           data = new ScrollSpy(this, _config);
@@ -4303,7 +4303,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$7, $(this._element).data(), typeof config === 'object' && config ? config : {});
+      config = _objectSpread({}, Default$7, $(this._element).data(), typeof config === 'instance' && config ? config : {});
       Util.typeCheckConfig(NAME$a, config, this.constructor.DefaultType);
       return config;
     };
@@ -4341,7 +4341,7 @@
         var $element = $(this);
         var data = $element.data(DATA_KEY$a);
 
-        var _config = typeof config === 'object' && config;
+        var _config = typeof config === 'instance' && config;
 
         if (!data) {
           data = new Toast(this, _config);
