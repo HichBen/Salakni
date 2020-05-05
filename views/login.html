@@ -1,55 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Salakni - Login</title>
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
-<body>
 
 <body>
-<header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-        <div class="logo mr-auto">
-            <h1><a href="index.html">Salakni</a></h1>
-        </div>
 
-        <nav class="nav-menu d-none d-lg-block">
-            <ul>
-                <li class="active"><a href="#header">Home</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-                <li><a href="#" class="btn-offer-services">Offer my services</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<div class="container container-small align-items-center login">
-    <div class="card">
-        <div class="card-header">
-            Login
-        </div>
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <label for="inputEmail">Email address</label>
-                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    <body>
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+                <div class="logo mr-auto">
+                    <h1><a href="/">Salakni</a></h1>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                        <li><a href="#" class="btn-offer-services">Offer my services</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container container-small align-items-center login">
+            <div class="card">
+                <div class="card-header">
+                    Login
+                </div>
+                <div class="card-body">
+                    <div class="submitMessage"></div>
+                    <form id="formLogin">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control form-control-lg" id="loginEmail" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control form-control-lg" id="loginPassword"
+                                required="true">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-
-
-
-
-</body>
+    </body>
 </html>
+
+<script>
+    document.getElementById('formLogin').onsubmit = (e) => {
+        e.preventDefault();
+        var email = document.getElementById('loginEmail').value;
+        var password = document.getElementById('loginPassword').value;
+        var data = { email, password };
+        console.log(data)
+        var result = $.post('/login', data);
+        result.done(data => {
+            console.log(data)
+            if (data.success == true) {
+                var html = `<div class="alert alert-success">
+                            ${data.message}
+                        </div>`
+                document.querySelector('.submitMessage').innerHTML = html;
+                setTimeout(() => {
+                    window.location.replace('/')
+                }, 1000)
+            } else {
+                console.log(data.message)
+                var html = `<div class="alert alert-danger">
+                            ${data.message}
+                        </div>`
+                document.querySelector('.submitMessage').innerHTML = html;
+            }
+        })
+    }
+</script>
