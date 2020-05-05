@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Salakni - Login</title>
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="../client-server.ts"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
+
 <body>
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
         <div class="logo mr-auto">
-            <h1><a href="index.html">Salakni</a></h1>
+            <h1><a href="/">Salakni</a></h1>
         </div>
-
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="#header">Home</a></li>
-
+                <li class="active"><a href="/">Home</a></li>
+                <li class="profile-li"><a href="/user">Profile</a></li>
+                <li class="providers-li"><a href="/providers">Providers</a></li>
+                <li class="logout-li"><a href="/logout">Logout</a></li>
+                <li><a href="#" class="btn-offer-services">Offer my services</a></li>
             </ul>
         </nav>
     </div>
@@ -35,7 +35,7 @@
         <!-- left column -->
         <div class="col-md-3">
             <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                <img src="" class="avatar img-circle" width="200px" alt="avatar">
             </div>
         </div>
 
@@ -49,14 +49,16 @@
             <h3>Personal info</h3>
 
             <form class="form-horizontal" role="form">
-
+                <div class="submitMessage"></div>
                 <div class="form-group">
                     <label for="inputFullName">Full Name</label>
-                    <input type="text" class="form-control" id="inputFullName" aria-describedby="fullNameHelp" placeholder="Enter Full Name">
+                    <input type="text" class="form-control" id="inputFullName" aria-describedby="fullNameHelp"
+                           placeholder="Enter Full Name">
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">Email address</label>
-                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                           placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">Password</label>
@@ -64,12 +66,13 @@
                 </div>
                 <div class="form-group">
                     <label for="inputConfirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="inputConfirmPassword"
+                           placeholder="Confirm Password">
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
-                        <input type="button" class="btn btn-primary" onclick="profileUpdate()" value="Save Changes">
+                        <button type="button" class="updateBtn btn btn-primary">Save Changes</button>
                         <span></span>
                         <input type="reset" class="btn btn-default" value="Cancel">
                     </div>
@@ -81,4 +84,55 @@
 <hr>
 
 </body>
+
 </html>
+
+<script>
+    let user
+    document.addEventListener("DOMContentLoaded", function () {
+        let result = $.get('/getuser')
+        result.done(data => {
+            console.log(data)
+            if (data.success == true) {
+                user = data.data
+                document.getElementById('inputEmail').value = data.data.email
+                document.getElementById('inputFullName').value = data.data.name
+                document.querySelector('.avatar').src = data.data.photo
+            } else {
+
+            }
+        })
+    });
+
+    document.querySelector('.updateBtn').onclick = (e) => {
+        e.preventDefault()
+        let email = document.getElementById('inputEmail').value
+        let name = document.getElementById('inputFullName').value
+        let password = document.getElementById('inputPassword').value
+        let confirm = document.getElementById('inputConfirmPassword').value
+
+        let data = { email, name, password, confirm }
+        let result
+        if(user.type == "provider"){
+            result = $.post(`/api/providers/${user._id}/update`, data)
+        } else {
+            result = $.post(`/clients/${user._id}/update`, data)
+        }
+        result.done(data => {
+            if (data.success == true) {
+                var html = `<div class="alert alert-success">
+                            ${data.message}
+                        </div>`
+                document.querySelector('.submitMessage').innerHTML = html;
+                setTimeout(() => {
+                    window.location.replace('/user')
+                }, 1000)
+            } else {
+                var html = `<div class="alert alert-danger">
+                            ${data.message}
+                        </div>`
+                document.querySelector('.submitMessage').innerHTML = html;
+            }
+        })
+    }
+</script>

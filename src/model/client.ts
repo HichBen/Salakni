@@ -1,16 +1,42 @@
 import * as mongoose from 'mongoose';
 
+const Schema = mongoose.Schema;
 
-export module ClientModel {
-     const ClientSchema = new mongoose.Schema({
-        fullName: { type: String, required: true },
-        email: { type: String, required: true },
-        password: { type: String, required: true },
-    }, {
-        collection: 'clients' ,
-        timestamps: {createdAt: 'createdDate', updatedAt: 'updatedDate'}
-    });
+export interface IClient extends mongoose.Document {
+    email: string;
+    password: string;
+    name: string;
+    phone: string;
+    address: string;
+    type: string;
+    photo: string
+};
 
-     export const instance = mongoose.model<any>('Client', ClientSchema);
+const ClientSchema = new Schema({
+    name: {
+        type: String,
+        required: 'Enter a first name'
+    },
+    password: {
+        type: String
+    },
+    email: {
+        type: String
+    },
+    address: {
+        type: String
+    },
+    phone: {
+        type: String
+    },
+    ptoto: {
+        type: String
+    },
+    type: {
+        type: String,
+        default: 'client'
+    }
+});
 
-}
+const Client = mongoose.model<IClient>('Client', ClientSchema);
+export default Client

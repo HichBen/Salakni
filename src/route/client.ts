@@ -11,15 +11,7 @@ export module ClientRouter {
 
         app.get('/clients/:client_id', ClientController.findOne);
 
-        /**
-         * POST
-         */
-        app.post('/clients', ClientController.create);
-
-        /**
-         * PUT
-         */
-        app.put('/clients/:client_id', ClientController.update);
+        app.post('/clients/:client_id/update', ClientController.updateOne);
 
         /**
          * DELETE

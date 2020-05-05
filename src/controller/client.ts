@@ -1,8 +1,9 @@
-import {ClientService} from "../service/client";
+import { ClientService } from "../service/client";
+import { Request, Response, NextFunction } from 'express'
 
 export module ClientController {
 
-    export async function findAll(req, res, next) {
+    export async function findAll(req: Request, res: Response, next: NextFunction) {
         try {
             const clients = await ClientService.findAll();
             res.status(200).json(clients);
@@ -11,7 +12,7 @@ export module ClientController {
         }
     }
 
-    export async function findOne(req, res, next) {
+    export async function findOne(req: Request, res: Response, next: NextFunction) {
         try {
             const client = await ClientService.findOne(req.params.client_id);
             res.status(200).json(client);
@@ -20,25 +21,17 @@ export module ClientController {
         }
     }
 
-    export async function create(req, res, next) {
+    export async function updateOne(req: Request, res: Response, next: NextFunction) {
         try {
-            const countryData = await ClientService.create(req.body);
-            res.status(201).json(countryData);
+            const client = await ClientService.updateOne(req.params.client_id, req.body);
+            console.log(client)
+            res.status(200).json(client);
         } catch (err) {
             next(err);
         }
     }
 
-    export async function update(req, res, next) {
-        try {
-            const updatedClient = await ClientService.update(req.params.client_id, req.body);
-            res.status(200).json(updatedClient);
-        } catch (err) {
-            next(err);
-        }
-    }
-
-    export async function remove(req, res, next) {
+    export async function remove(req: Request, res: Response, next: NextFunction) {
         try {
             const removed = await ClientService.remove(req.params.client_id);
             res.status(200).json(removed);
@@ -48,4 +41,3 @@ export module ClientController {
     }
 
 }
- 
