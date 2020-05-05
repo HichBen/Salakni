@@ -1,73 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Salakni - Signup</title>
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
-<body>
-
 
 <body>
-<header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-        <div class="logo mr-auto">
-            <h1><a href="index.html">Salakni</a></h1>
-        </div>
 
-        <nav class="nav-menu d-none d-lg-block">
-            <ul>
-                <li class="active"><a href="#header">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="#" class="btn-offer-services">Offer my services</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
 
-<div class="container container-small align-items-center login">
-    <div class="card">
-        <div class="card-header">
-            Sign up
-        </div>
-        <div class="card-body">
-            <form>
-                <div class="form-group">
-                    <label for="inputFullName">Full Name</label>
-                    <input type="text" class="form-control" id="inputFullName" aria-describedby="fullNameHelp" placeholder="Enter Full Name">
+    <body>
+        <header id="header" class="fixed-top d-flex align-items-center">
+            <div class="container d-flex align-items-center">
+                <div class="logo mr-auto">
+                    <h1><a href="/">Salakni</a></h1>
                 </div>
-                <div class="form-group">
-                    <label for="inputEmail">Email address</label>
-                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="inputConfirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password">
-                </div>
-                <div style="clear:both;"> Are you a Provider
 
-                    <input type="checkbox" id="providerCheck">
-                    <div class="group">
-                        <!--<label for="inputConfirmPassword">Enter Your Skills</label>-->
-                        <input class="form-control" id="inputSkill" placeholder="What is your skill">
-                    </div>
-                    <div class="group">
-                        <textarea class="form-control" id="inputOtherInfomation" placeholder="Other information you want to share"  rows="3" ></textarea>
-                    </div>
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="#" class="btn-offer-services">Offer my services</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container container-small align-items-center login">
+            <div class="card">
+                <div class="card-header">
+                    Sign up
                 </div>
-                <button type="submit" class="btn btn-primary">Sign up</button>
-            </form>
+                <div class="card-body">
+                    <div class="submitMessage"></div>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="name">name</label>
+                            <input type="text" class="form-control form-control-lg" id="registerName" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control form-control-lg" id="registerPassword"
+                                required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="text" class="form-control form-control-lg" id="registerEmail" required="true">
+                        </div>
+                        <div class="form-group">
+                            <label>photo</label>
+                            <img src="" class="imgPrev" width="200px" alt="">
+                            <button class="generatPic btn btn-success">Generate Picture</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">address</label>
+                            <input type="text" class="form-control form-control-lg" id="registerAddress"
+                                required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">phone</label>
+                            <input type="text" class="form-control form-control-lg" id="registerPhone" required="true">
+                        </div>
+                        <div style="clear:both;"> Are you a Provider
+                            <input type="checkbox" id="providerCheck">
+                            <div class="group">
+                                <!--<label for="inputConfirmPassword">Enter Your Skills</label>-->
+                                <input class="form-control" id="registerSkill"
+                                    placeholder="What is your skill? leave , between skills">
+                            </div>
+                            <div class="group">
+                                <textarea class="form-control" id="registerDesc"
+                                    placeholder="Other information you want to share" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign up</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</body>
+    </body>
+
 </html>
+
+<script>
+    let imgUrl = undefined
+    document.querySelector('.generatPic').onclick = e => {
+        e.preventDefault()
+        let result = $.get('/addpic')
+        result.done(data => {
+            document.querySelector('.imgPrev').src = data.data
+            imgUrl = data.data
+        })
+    }
+
+    document.getElementById('registerForm').onsubmit = e => {
+        e.preventDefault();
+        var email = document.getElementById('registerEmail').value;
+        var name = document.getElementById('registerName').value;
+        var password = document.getElementById('registerPassword').value;
+        var description = document.getElementById('registerDesc').value;
+        var phone = document.getElementById('registerPhone').value;
+        var address = document.getElementById('registerAddress').value
+        var skills = document.getElementById('registerSkill').value
+        var provider = document.querySelector('#providerCheck').checked
+
+        var data = { email, password, name, description, phone, address, skills, provider, imgUrl };
+
+        var result = $.post('/register', data);
+        result.done(data => {
+            if (data.success == true) {
+                var html = `<div class="alert alert-success">
+                            ${data.message}
+                        </div>`
+                document.querySelector('.submitMessage').innerHTML = html;
+                setTimeout(() => {
+                    window.location.replace('/login')
+                }, 1000)
+            } else {
+                var html = `<div class="alert alert-danger">
+                            ${data.message}
+                        </div>`
+                document.querySelector('.submitMessage').innerHTML = html;
+            }
+        })
+    }
+</script>

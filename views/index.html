@@ -5,23 +5,28 @@
   <meta charset="utf-8">
   <title>Perfect service provider</title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="css/style.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
       <div class="logo mr-auto">
-        <h1><a href="index.html">Salakni</a></h1>
+        <h1><a href="/">Salakni</a></h1>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="html/providers.html">Home</a></li>
-          <li><a href="html/signup.html">Sign Up</a></li>
-          <li><a href="html/login.html">Login</a></li>
-          <li><a href="html/signup.html" class="btn-offer-services">Offer my services</a></li>
+          <li class="active"><a href="/">Home</a></li>
+          <li class="signup-li"><a href="/register">Sign Up</a></li>
+          <li class="signin-li"><a href="/login">Login</a></li>
+          <li class="profile-li"><a href="/user">Profile</a></li>
+          <li class="providers-li"><a href="/providers">Providers</a></li>
+          <li class="logout-li"><a href="/logout">Logout</a></li>
+          <li><a href="providers.html" class="btn-offer-services">Offer my services</a></li>
         </ul>
       </nav>
     </div>
@@ -48,25 +53,33 @@
           <div class="col-md-6">
             <div class="icon-box">
               <h4><a href="#">Gardner</a></h4>
-              <p>maintain the beauty of plants, outdoor grounds, and trees in a garden. They perform a range of general maintenance tasks including designing, producing, renewing and preserving outside spaces. Gardeners can work on local parks, hotels, farms, and nurseries.</p>
+              <p>maintain the beauty of plants, outdoor grounds, and trees in a garden. They perform a range of general
+                maintenance tasks including designing, producing, renewing and preserving outside spaces. Gardeners can
+                work on local parks, hotels, farms, and nurseries.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4 mt-lg-0">
             <div class="icon-box">
               <h4><a href="#">Mecanic</a></h4>
-              <p> responsible for inspecting and repairing vehicles, machinery, and light trucks. Also known as Service Technicians, these professionals oversee maintenance inspections, monitor inventory, assemble mechanical components, and perform repairs.</p>
+              <p> responsible for inspecting and repairing vehicles, machinery, and light trucks. Also known as Service
+                Technicians, these professionals oversee maintenance inspections, monitor inventory, assemble mechanical
+                components, and perform repairs.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4">
             <div class="icon-box">
               <h4><a href="#">Electrician</a></h4>
-              <p>Install, maintain and repair electrical control, wiring, and lighting systems. ... Perform general electrical maintenance. Inspect transformers and circuit breakers and other electrical components. Troubleshoot electrical issues using appropriate of testing devices.</p>
+              <p>Install, maintain and repair electrical control, wiring, and lighting systems. ... Perform general
+                electrical maintenance. Inspect transformers and circuit breakers and other electrical components.
+                Troubleshoot electrical issues using appropriate of testing devices.</p>
             </div>
           </div>
           <div class="col-md-6 mt-4">
             <div class="icon-box">
               <h4><a href="#">HVAC Technician</a></h4>
-              <p>Installing, maintaining and repairing ventilation and air conditioning systems and equipment. Identifying maintenance risks on equipment. Diagnosing electrical and mechanical faults for HVAC systems. Cleaning, adjusting and repairing systems, and performing warranty services.</p>
+              <p>Installing, maintaining and repairing ventilation and air conditioning systems and equipment.
+                Identifying maintenance risks on equipment. Diagnosing electrical and mechanical faults for HVAC
+                systems. Cleaning, adjusting and repairing systems, and performing warranty services.</p>
             </div>
           </div>
         </div>
@@ -152,7 +165,8 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="md-form">
-                      <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                      <textarea type="text" id="message" name="message" rows="2"
+                        class="form-control md-textarea"></textarea>
                       <label for="message">Your message</label>
                     </div>
                   </div>
@@ -165,7 +179,7 @@
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </section>
   </main>
 
@@ -176,7 +190,29 @@
           &copy; Copyright <strong><span>Salakni - Hicham - Mustapha - Mehdi</span></strong>. All Rights Reserved
         </div>
       </div>
-    </footer>
-  </body>
+  </footer>
+</body>
 
-  </html>
+</html>
+
+<script>
+  let user
+  document.addEventListener("DOMContentLoaded", function () {
+    let result = $.get('/getuser')
+    result.done(data => {
+      if (data.success == true) {
+        document.querySelector(".signin-li").style.display = "none";
+        document.querySelector(".signup-li").style.display = "none";
+        document.querySelector(".profile-li").style.display = "block";
+        document.querySelector(".logout-li").style.display = "block";
+        document.querySelector(".providers-li").style.display = "block";
+      } else {
+        document.querySelector(".signin-li").style.display = "block";
+        document.querySelector(".signup-li").style.display = "block";
+        document.querySelector(".logout-li").style.display = "none";
+        document.querySelector(".profile-li").style.display = "none";
+        document.querySelector(".providers-li").style.display = "none";
+      }
+    })
+  });
+</script>
