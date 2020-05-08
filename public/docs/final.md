@@ -47,6 +47,9 @@ This section of the document enlists the over-all understanding about the projec
 
 * Mostafa Elebiary: melebiary
 
+# Video Link
+
+https://www.youtube.com/watch?v=lGFJitVr81U&list=PLbTmqqGclWPIyj1DOb6WwfmpuYCC78vzR&index=2&t=0s
 # Heroku URL
 
 https://dry-garden-88062.herokuapp.com/
